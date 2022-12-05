@@ -39,13 +39,13 @@ body {
 .background_container::before {
     top: 0;
     left: 0;
-    background: url('/images/bg-pattern-top.svg') no-repeat bottom right; /*to expand to bottom and right*/
+    background: url('images/bg-pattern-top.svg') no-repeat bottom right; /*to expand to bottom and right*/
 }
 
 .background_container::after {
     top: 100%;
     left: 100%;
-    background: url('./images/bg-pattern-bottom.svg') no-repeat top left; /*to expand to top and left*/
+    background: url('images/bg-pattern-bottom.svg') no-repeat top left; /*to expand to top and left*/
 }
 
 .main {
