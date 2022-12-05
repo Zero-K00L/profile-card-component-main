@@ -18,13 +18,15 @@ html {
 }
 
 body {
-    background-image: url('images/bg-pattern-top.svg'), url('images/bg-pattern-bottom.svg');
     background-color: var(--darkCyan);
-    background-position: 128% 62%, -21% -35%;
-    /* background-position: 130% 286%, -27% -185%; */
     background-repeat: no-repeat;
     font-family: 'Kumbh Sans', sans-serif;
     font-size: 1.125rem;
+}
+
+body::before, body::after {
+    position: absolute;
+    margin: 0; /* allows the background to be flush with top edge */
 }
 
 .main {
@@ -38,6 +40,40 @@ body {
     background-color: white;
     border-radius: 1rem;
     box-shadow: 0px 12px 24px -18px var(--veryDarkDesaturatedBlue);
+}
+
+.background_container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.background_container::before, 
+.background_container:after {
+    content: '';
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-size: auto;
+    transform: translate(-50%, -50%); /*to the left and top*/
+    z-index: -1;
+}
+
+.background_container::before {
+    top: 0;
+    left: 0;
+    background: url('/images/bg-pattern-top.svg') no-repeat bottom right; /*to expand to bottom and right*/
+}
+
+.background_container::after {
+    top: 100%;
+    left: 100%;
+    background: url('./images/bg-pattern-bottom.svg') no-repeat top left; /*to expand to top and left*/
 }
 
 .main_img {
@@ -179,20 +215,6 @@ li {
 /* Large devices(laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
     body {
-        background-position: -4% 41%, 97% -52%;
-    }    
-}
-
-/* Large devices(laptops/desktops, 1440px and up) */
-@media only screen and (min-width: 1440px) {
-    body {
-        background-position: -51% 41%, 152% -52%;
-    }    
-}
-
-/* Large devices(laptops/desktops, 1920px and up) */
-@media only screen and (min-width: 1920px) {
-    body {
-        background-position: -5% 41%, 97% -52%;
+        
     }    
 }
